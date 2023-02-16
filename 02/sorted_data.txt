@@ -1,0 +1,10 @@
+5 1 doll
+9 1 doll
+10 1 robot
+7 1 robot
+4 2 car
+2 2 robot
+1 2 constructing set
+6 3 doll
+8 3 constructing set
+3 6 doll
