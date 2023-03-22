@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.*;
 
 public class AnimalRegistry {
@@ -25,29 +26,33 @@ public class AnimalRegistry {
 
     // methods pertinent to adding new animal
     public void addAnimal() {
-        printAnimalTypes();
-        int animalType = Integer.parseInt(scanner.nextLine());
-        switch (animalType) {
-            case 1:
-                addPetAnimal("dog");
-                break;
-            case 2:
-                addPetAnimal("cat");
-                break;
-            case 3:
-                addPetAnimal("hamster");
-                break;
-            case 4:
-                addPackAnimal("horse");
-                break;
-            case 5:
-                addPackAnimal("donkey");
-                break;
-            case 6:
-                addPackAnimal("camel");
-                break;
-            default:
-                System.out.println("You entered wrong number");
+        try (AnimalCounter ac = new AnimalCounter()) {
+            printAnimalTypes();
+            int animalType = Integer.parseInt(scanner.nextLine());
+            switch (animalType) {
+                case 1:
+                    addPetAnimal("dog");
+                    break;
+                case 2:
+                    addPetAnimal("cat");
+                    break;
+                case 3:
+                    addPetAnimal("hamster");
+                    break;
+                case 4:
+                    addPackAnimal("horse");
+                    break;
+                case 5:
+                    addPackAnimal("donkey");
+                    break;
+                case 6:
+                    addPackAnimal("camel");
+                    break;
+                default:
+                    System.out.println("You entered wrong number");
+            }
+        } catch (IOException e) {
+            System.out.println("Counter is not closed");
         }
     }
 
